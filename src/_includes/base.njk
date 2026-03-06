@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EnergizedSEO - Automated web agency for local businesses. Get a professional website with built-in SEO that brings you customers.">
+  <meta name="keywords" content="local business SEO, website design, small business marketing, SEO services, web design">
+  <meta name="author" content="EnergizedSEO">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="EnergizedSEO - Websites That Bring You Customers">
+  <meta property="og:description" content="Professional websites with built-in SEO for local businesses. Get your free mockup today.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://energizedseo.com">
+  <meta property="og:image" content="https://energizedseo.com/images/og-image.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EnergizedSEO - Websites That Bring You Customers">
+  <meta name="twitter:description" content="Professional websites with built-in SEO for local businesses.">
+  
+  <title>{{ title | default("EnergizedSEO - Websites That Bring You Customers") }}</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Scripts -->
+  <script src="/js/main.js" defer></script>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "EnergizedSEO",
+    "description": "Automated web agency for local businesses",
+    "url": "https://energizedseo.com",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    },
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  {% include "header.njk" %}
+  
+  <main>
+    {{ content | safe }}
+  </main>
+  
+  {% include "footer.njk" %}
+</body>
+</html>
