@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C. Carlin Plumbing Inc. - Professional Plumber Services</title>
+  <meta name="description" content="C. Carlin Plumbing Inc. is a professional Plumber located at Erie, PA. Call us at (814) 825-2805 for quality services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --electric-blue: #2563EB;
+      --midnight-navy: #0F172A;
+      --solar-orange: #F97316;
+      --success-green: #10B981;
+      --slate-gray: #64748B;
+      --light-gray: #F1F5F9;
+      --white: #FFFFFF;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--midnight-navy);
+      color: var(--white);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    .header {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--electric-blue);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .nav-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--electric-blue);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--midnight-navy) 0%, #1E293B 100%);
+    }
+    
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .hero-text h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    
+    .hero-text .category {
+      font-size: 14px;
+      color: var(--electric-blue);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    
+    .hero-text p {
+      color: var(--slate-gray);
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: var(--electric-blue);
+      color: var(--white);
+    }
+    
+    .btn-primary:hover {
+      background: #1D4ED8;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--electric-blue);
+      color: var(--electric-blue);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(37, 99, 235, 0.1);
+    }
+    
+    /* Score Card */
+    .score-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    
+    .score-card h3 {
+      font-size: 14px;
+      color: var(--slate-gray);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .score-display {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .score-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid;
+    }
+    
+    .score-number {
+      font-size: 36px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .score-label {
+      font-size: 12px;
+      color: var(--slate-gray);
+    }
+    
+    .grade-badge {
+      font-size: 48px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .issues-list {
+      list-style: none;
+    }
+    
+    .issues-list li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--light-gray);
+      font-size: 14px;
+    }
+    
+    .issues-list li::before {
+      content: "⚠";
+      position: absolute;
+      left: 0;
+      color: var(--solar-orange);
+    }
+    
+    /* Info Section */
+    .info-section {
+      padding: 60px 0;
+      background: var(--midnight-navy);
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .info-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    
+    .info-card h3 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: var(--electric-blue);
+    }
+    
+    .info-card p {
+      color: var(--light-gray);
+      font-size: 15px;
+    }
+    
+    .info-card a {
+      color: var(--electric-blue);
+      text-decoration: none;
+    }
+    
+    .info-card a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Hours */
+    .hours-list {
+      list-style: none;
+    }
+    
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .day {
+      color: var(--light-gray);
+    }
+    
+    .time {
+      color: var(--slate-gray);
+    }
+    
+    /* Services */
+    .services-section {
+      padding: 60px 0;
+      background: #1E293B;
+    }
+    
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
+    .section-subtitle {
+      color: var(--slate-gray);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .service-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    
+    .service-card:hover {
+      border-color: var(--electric-blue);
+      transform: translateY(-4px);
+    }
+    
+    .service-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    
+    .service-card h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    
+    .service-card p {
+      color: var(--slate-gray);
+      font-size: 14px;
+    }
+    
+    /* Map Section */
+    .map-section {
+      padding: 60px 0;
+      background: var(--midnight-navy);
+    }
+    
+    .map-container {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .map-iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+    
+    /* Rating Section */
+    .rating-section {
+      padding: 60px 0;
+      background: #1E293B;
+    }
+    
+    .rating-display {
+      text-align: center;
+    }
+    
+    .stars {
+      font-size: 32px;
+      color: var(--solar-orange);
+      margin-bottom: 8px;
+    }
+    
+    .rating-number {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .review-count {
+      color: var(--slate-gray);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--electric-blue) 0%, #1D4ED8 100%);
+      text-align: center;
+    }
+    
+    .cta-section h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+    
+    .cta-btn {
+      background: var(--white);
+      color: var(--electric-blue);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 40px 0;
+      background: #0A0F18;
+      text-align: center;
+    }
+    
+    .footer p {
+      color: var(--slate-gray);
+      font-size: 14px;
+    }
+    
+    .footer a {
+      color: var(--electric-blue);
+      text-decoration: none;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .hero-text h1 {
+        font-size: 32px;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        text-align: center;
+        justify-content: center;
+      }
+      
+      .info-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">C. Carlin Plumbing Inc.</div>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="#location">Location</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="category">Plumber</div>
+          <h1>C. Carlin Plumbing Inc.</h1>
+          <p>Professional Plumber services in your area. We're committed to delivering quality work and excellent customer service.</p>
+          
+          <div class="hero-buttons">
+            <a href="tel:8148252805" class="btn btn-primary">
+              📞 Call Now
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Erie%2C%20PA" target="_blank" class="btn btn-secondary">
+              📍 Get Directions
+            </a>
+          </div>
+        </div>
+        
+        <div class="score-card">
+          <h3>Web Presence Score</h3>
+          <div class="score-display">
+            <div class="score-circle" style="border-color: #34D399;">
+              <span class="score-number" style="color: #34D399;">79</span>
+              <span class="score-label">out of 100</span>
+            </div>
+            <div>
+              <div class="grade-badge" style="color: #34D399;">B</div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 style="font-size: 14px; color: var(--slate-gray); margin-bottom: 12px;">Issues Found:</h4>
+            <ul class="issues-list">
+                <li>No SSL certificate (not HTTPS)</li>
+                <li>Title too short (&lt;30 chars)</li>
+                <li>Missing meta description</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>📍 Address</h3>
+          <p>Erie, PA</p>
+        </div>
+        
+        <div class="info-card">
+          <h3>📞 Phone</h3>
+          <p><a href="tel:8148252805">(814) 825-2805</a></p>
+        </div>
+        
+        <div class="info-card">
+          <h3>🕐 Hours</h3>
+          <ul class="hours-list">
+            <li><span class="day">Monday</span><span class="time">9:00 AM - 5:00 PM</span></li>
+            <li><span class="day">Tuesday</span><span class="time">9:00 AM - 5:00 PM</span></li>
+            <li><span class="day">Wednesday</span><span class="time">9:00 AM - 5:00 PM</span></li>
+            <li><span class="day">Thursday</span><span class="time">9:00 AM - 5:00 PM</span></li>
+            <li><span class="day">Friday</span><span class="time">9:00 AM - 5:00 PM</span></li>
+            <li><span class="day">Saturday</span><span class="time">Closed</span></li>
+            <li><span class="day">Sunday</span><span class="time">Closed</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Professional services tailored to your needs</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h4>Emergency Repairs</h4>
+          <p>Quality service you can trust</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h4>Drain Cleaning</h4>
+          <p>Quality service you can trust</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h4>Water Heater</h4>
+          <p>Quality service you can trust</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h4>Pipe Repair</h4>
+          <p>Quality service you can trust</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h4>Bathroom Plumbing</h4>
+          <p>Quality service you can trust</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✦</div>
+          <h4>Kitchen Plumbing</h4>
+          <p>Quality service you can trust</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rating Section -->
+  <section class="rating-section">
+    <div class="container">
+      <div class="rating-display">
+        <div class="stars">
+          ★★★★
+          ☆
+        </div>
+        <div class="rating-number">4.8</div>
+        <div class="review-count">2420 reviews on Google</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section" id="location">
+    <div class="container">
+      <h2 class="section-title">Find Us</h2>
+      <p class="section-subtitle">Erie, PA</p>
+      <div class="map-container">
+        <iframe 
+          class="map-iframe"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTtTqiBXW-p-qMh1M2bJiN-Q&q=Erie%2C%20PA"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p>Contact us today for a free consultation</p>
+      <a href="tel:8148252805" class="cta-btn">Call (814) 825-2805</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Preview generated by <a href="#">EnergizedSEO</a> | Mockup ID: c-carlin-plumbing-inc-cd7346cd</p>
+      <p style="margin-top: 8px; font-size: 12px;">Generated: 2026-03-07T23:39:01.773Z</p>
+    </div>
+  </footer>
+</body>
+</html>
